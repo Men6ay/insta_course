@@ -1,9 +1,10 @@
 from django.db import models
 from django.db.models.base import Model
-from users.models import User
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 class Post(models.Model):
-    title = models.CharField(max_length=255, null=True, blank=True)
     text = models.TextField(null=True, blank=True)
     created_at = models.DateField(auto_now=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='post_user')
