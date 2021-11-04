@@ -18,8 +18,8 @@
                     </div>
                 {% else %}
                     <a class="btn btn-success" href="#">Login with Google</a>
-                    <a class="btn btn-success" href="#"> Вход </a>
-                    <a class="btn btn-success" href="#"> Регистрация </a>
+                    <a class="btn btn-success" href="{% url 'account_login' %}"> Вход </a>
+                    <a class="btn btn-success" href="{% url 'account_signup' %}"> Регистрация </a>
                 {% endif %}
                 <div class="d-flex align-items-center justify-content-between" style="width: 200px;">
                     <i class="fa fa-home" style="font-size: 25px;"></i>

@@ -3,6 +3,7 @@ from django.forms.models import inlineformset_factory
 from django.shortcuts import render,redirect
 from posts.models import Post,PostImage
 from posts.forms import PostForm,PostImageForm
+from django.contrib.auth.models import User
 
 def home(request):
     posts = Post.objects.all()
@@ -15,7 +16,7 @@ def create(request):
         if form.is_valid():
             post = Post()
             post.text = form.cleaned_data['text']
-            post.user = request.user
+            post.owner = request.user
             post.save()
             formset = PostImageFormSet
             if formset.is_valid():
@@ -48,3 +49,6 @@ def delete(request,id):
         return redirect('home')
     return render(request,'posts/delete.html')
 
+def get_profile(request,id):
+    profile = User.objects.get(id=id)
+    return render(request,'profile.html',{'profile':profile})
