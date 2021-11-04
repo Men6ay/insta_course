@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '68855271508-d1evuvgt3cjunmvm67hj0nprb1n904rm.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 
 # Application definition
 

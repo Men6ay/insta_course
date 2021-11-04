@@ -51,7 +51,7 @@
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                        <form method="post" action="{% url 'index' %}">
+                        <form method="post" action="{% url 'home' %}">
                             {% csrf_token %}
                         <div class="d-flex p-3 justify-content-between" style="width: 150px;">
                             <input type="hidden" name="like" value="{{ post.id }}">
