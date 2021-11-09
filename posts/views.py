@@ -18,9 +18,9 @@ def create(request):
             post.text = form.cleaned_data['text']
             post.owner = request.user
             post.save()
-            formset = PostImageFormSet
+            formset = PostImageFormSet(request.POST, request.FILES, instance=post)
             if formset.is_valid():
-                formset.save()
+                formset.save()  
             return redirect('home')
     formset=PostImageFormSet()
     return render(request,'posts/create.html',locals())

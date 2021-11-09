@@ -8,12 +8,12 @@ class Post(models.Model):
     owner = models.ForeignKey(User,on_delete=models.CASCADE,related_name='post_user')
 
     def __str__(self):
-        return self.id
+        return self.owner
 
 class PostImage(models.Model):
     image = models.ImageField(upload_to = 'image',null=True, blank=True)
     post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name='post_image',null=True, blank=True)
 
     def __str__(self):
-        return self.post.id
+        return self.post.owner
 
